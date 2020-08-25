@@ -1,6 +1,10 @@
 require('dotenv').config();
 const express=require('express');
 const mongoose=require('mongoose');
+const authRoutes=require('./routes/authRoutes');
+
+const app=express();
+app.use(authRoutes);
 
 const mongoUri='mongodb+srv://admin:passwordpassword@cluster0.xz2f1.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoUri,{
@@ -16,7 +20,7 @@ mongoose.connection.on('error',(err)=>{
     console.log("Error connectiong to mongo",err);
 })
 
-const app=express();
+
 
 app.get("/",(req,res)=>{
     res.send("<h1>Hello World");
