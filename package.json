@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev":"nodemon src/index.js"
+    "dev": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC"

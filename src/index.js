@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./models/User');
 const express=require('express');
 const mongoose=require('mongoose');
 const bodyParser=require('body-parser');
@@ -11,7 +12,8 @@ app.use(authRoutes);
 const mongoUri='mongodb+srv://admin:passwordpassword@cluster0.xz2f1.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoUri,{
     useNewUrlParser:true,
-    useCreateIndex:true
+    useCreateIndex:true,
+    useUnifiedTopology: true
 });
 
 mongoose.connection.on('connected',()=>{
