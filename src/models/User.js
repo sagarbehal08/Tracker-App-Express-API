@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const bcryt=require('bcrypt');
+const bcrypt=require('bcrypt');
 const userSchema=new mongoose.Schema({
     email:{
         type:String,
@@ -12,7 +12,7 @@ const userSchema=new mongoose.Schema({
     }
 })
 
-userSchema.pre('save',function(){
+userSchema.pre('save',function(next){
     const user=this;
     if(!user.isModified('password')){
         return next();
